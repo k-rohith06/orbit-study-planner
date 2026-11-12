@@ -340,8 +340,8 @@ app.post('/api/revision/submit', requireUser, async (req, res) => {
   }
 });
 
-app.use(express.static(path.join(__dirname, 'public')));
-app.get('*', (_req, res) => res.sendFile(path.join(__dirname, 'public', 'index.html')));
+app.use(express.static(path.join(__dirname)));
+app.get('*', (_req, res) => res.sendFile(path.join(__dirname, 'index.html')));
 
 connectDatabase().finally(() => {
   app.listen(port, () => console.log(`Orbit is listening on port ${port}.`));
